@@ -1,0 +1,4 @@
+#Ignorar los .txt
+*.txt
+
+
