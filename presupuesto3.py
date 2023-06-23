@@ -1,6 +1,6 @@
+#!/usr/bin/env python
 """
-Un Programa para hacer presupuestos del taller de Teten
-Será posible hacer funcionar algo así en un servidor?
+Programa para hacer presupuestos del taller de Teten
 """
 def costo():
     calculo=cantidades[x]*precios[x]
@@ -11,11 +11,11 @@ def costo_pintura():
     return calculo_pintura
 
 def costo_seismts():
-    calculo_seismts=cantidades[x]*(precios[x]/6)
+    calculo_seismts=cantidades[x]*(precios[x]/600)
     return calculo_seismts
 
 def costo_hierro():
-    calculo_hierro=cantidades[x]*(precios[x]/12)
+    calculo_hierro=cantidades[x]*(precios[x]/1200)
     return calculo_hierro
 
 def costo_insumos():
@@ -27,7 +27,7 @@ def manodeobra():
     return suma_horas
 
 def margen():
-    margen_material=(sum(total)/3)
+    margen_material=(sum(total)/2)
     return margen_material
 
 def totales():
@@ -43,18 +43,18 @@ precios=[]
 total=[]
 
 #### Variable para un divisor ;-) ####
-divisor='-.' * 16
-linea='-' * 50
+divisor='-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-'
+
 #### Mensaje de presentación ####
 
-print (linea)
+print ('--------------------------------------------------')
 print ('|  Programa para sumar costos de un presupuesto  |')
-print (linea)
+print ('--------------------------------------------------')
 print ('Podés usar las siguientes palabras clave:')
 print ('\"caño\" o \"Caño" y \"planchuela\" o \"Planchuela"')
-print ('para ingresar la cantidad en metros y el precio del tirón de seis metros')
+print ('para ingresar la cantidad en centimetros y el precio del tirón de seis metros')
 print ('\"hierro\" o \"Hierro"')
-print ('para ingresar la cantidad en metros y el precio del tirón de doce metros')
+print ('para ingresar la cantidad en centimetros y el precio del tirón de doce metros')
 print ('\"pintura\" o \"Pintura"')
 print ('para ingresar la cantidad en centímetros cúbicos y el precio por litro')
 print ('Otras palabras en material va a multiplicar la cantidad por el precio')
@@ -116,24 +116,19 @@ print(divisor, file=archivo)
 print('|', file=archivo)
 print('|  Presupuesto para ',cliente, file=archivo)
 print('|', file=archivo)
-
 for  x in range(len(materiales)):
     if ('caño' in materiales[x] or 'Caño' in materiales[x]):
         print ('|  El costo de ',materiales[x], 'es: $',
-        '{:.2f}'.format(costo_seismts()), file=archivo)
+               '{:.2f}'.format(costo_seismts()), file=archivo)
     elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
         print ('|  El costo de ',materiales[x], 'es: $',
         '{:.2f}'.format(costo_pintura()), file=archivo)
     elif ('planchuela' in materiales[x] or 'Planchuela' in materiales[x]):
         print ('|  El costo de ',materiales[x],  'es: $',
         '{:.2f}'.format(costo_seismts()), file=archivo)
-    elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
-        print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_hierro()), file=archivo)
     else:
         print ('|  El costo de ',materiales[x], 'es : $',
         '{:.2f}'.format(costo()), file=archivo)
-
 print('|  Una estimación aproximada de otros insumos: $',
 '{:.2f}'.format(costo_insumos()), file=archivo)
 print('|  El margen de ganancia es: $',
