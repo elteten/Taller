@@ -16,11 +16,11 @@ def costo_seismts():
     return calculo_seismts
 
 def costo_hierro():
-    calculo_hierro=cantidades[x]*(precios[x]/1200)
+    calculo_hierro=cantidades[x]*(precios[x]/600)
     return calculo_hierro
 
 def costo_insumos():
-    calculo_insumos=((precio_horas*horas)/6)
+    calculo_insumos=((precio_horas*horas)/2)
     return calculo_insumos
 
 def manodeobra():
@@ -125,6 +125,9 @@ for  x in range(len(materiales)):
         print ('|  El costo de ',materiales[x], 'es: $',
         '{:.2f}'.format(costo_pintura()), file=archivo)
     elif ('planchuela' in materiales[x] or 'Planchuela' in materiales[x]):
+        print ('|  El costo de ',materiales[x],  'es: $',
+        '{:.2f}'.format(costo_seismts()), file=archivo)
+    elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
         print ('|  El costo de ',materiales[x],  'es: $',
         '{:.2f}'.format(costo_seismts()), file=archivo)
     else:
