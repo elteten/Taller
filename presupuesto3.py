@@ -15,9 +15,9 @@ def costo_seismts():
     calculo_seismts=cantidades[x]*(precios[x]/600)
     return calculo_seismts
 
-def costo_hierro():
-    calculo_hierro=cantidades[x]*(precios[x]/600)
-    return calculo_hierro
+def costo_alambre():
+    calculo_alambre=cantidades[x]*(precios[x]/800)
+    return calculo_alambre
 
 def costo_insumos():
     calculo_insumos=((precio_horas*horas)/2)
@@ -52,10 +52,10 @@ print ('--------------------------------------------------')
 print ('|  Programa para sumar costos de un presupuesto  |')
 print ('--------------------------------------------------')
 print ('Podés usar las siguientes palabras clave:')
-print ('\"caño\" o \"Caño" y \"planchuela\" o \"Planchuela"')
+print ('\"hierro\" o \"Hierro" , \"caño\" o \"Caño" y \"planchuela\" o \"Planchuela"')
 print ('para ingresar la cantidad en centimetros y el precio del tirón de seis metros')
-print ('\"hierro\" o \"Hierro"')
-print ('para ingresar la cantidad en centimetros y el precio del tirón de doce metros')
+print ('\"alambre\" o \"Alambre"')
+print ('para ingresar la cantidad en centimetros y el precio del tirón de 8 metros')
 print ('\"pintura\" o \"Pintura"')
 print ('para ingresar la cantidad en centímetros cúbicos y el precio por litro')
 print ('Otras palabras en material va a multiplicar la cantidad por el precio')
@@ -83,18 +83,22 @@ for  x in range(len(materiales)):
         total.append(costo_seismts())
         print ('El costo de ',materiales[x], 'es: $',
         '{:.2f}'.format(costo_seismts()))
-    elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
-        total.append(costo_pintura())
-        print ('El costo de ',materiales[x], 'es: $',
-        '{:.2f}'.format(costo_pintura()))
     elif ('planchuela' in materiales[x] or 'Planchuela' in materiales[x]):
         total.append(costo_seismts())
         print ('El costo de ',materiales[x],  'es: $',
         '{:.2f}'.format(costo_seismts()))
     elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
-        total.append(costo_hierro())
+        total.append(costo_seismts())
         print ('El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_hierro()))
+        '{:.2f}'.format(costo_seismts()))
+    elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
+        total.append(costo_alambre())
+        print ('El costo de ',materiales[x],  'es: $',
+        '{:.2f}'.format(costo_alambre()))
+    elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
+        total.append(costo_pintura())
+        print ('El costo de ',materiales[x], 'es: $',
+        '{:.2f}'.format(costo_pintura()))
     else:
         print ('El costo de ',materiales[x], 'es : $',
         '{:.2f}'.format(costo()))
