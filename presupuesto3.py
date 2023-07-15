@@ -121,22 +121,27 @@ print(divisor, file=archivo)
 print('|', file=archivo)
 print('|  Presupuesto para ',cliente, file=archivo)
 print('|', file=archivo)
+
+# Seguir trabajando en el tema de las cantidades 
 for  x in range(len(materiales)):
     if ('caño' in materiales[x] or 'Caño' in materiales[x]):
         print ('|  El costo de ',materiales[x], 'es: $',
-               '{:.2f}'.format(costo_seismts()), file=archivo)
+        '{:.2f}'.format(costo_seismts()),' - ',cantidades[x], file=archivo)
     elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
         print ('|  El costo de ',materiales[x], 'es: $',
-        '{:.2f}'.format(costo_pintura()), file=archivo)
+        '{:.2f}'.format(costo_pintura()),' - ',cantidades[x], file=archivo)
     elif ('planchuela' in materiales[x] or 'Planchuela' in materiales[x]):
         print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_seismts()), file=archivo)
+        '{:.2f}'.format(costo_seismts()),' - ',cantidades[x], file=archivo)
     elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
         print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_seismts()), file=archivo)
+        '{:.2f}'.format(costo_seismts()),' - ',cantidades[x], file=archivo)
+    elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
+        print ('|  El costo de ',materiales[x],  'es: $',
+        '{:.2f}'.format(costo_alambre()),' - ',cantidades[x], file=archivo)
     else:
         print ('|  El costo de ',materiales[x], 'es : $',
-        '{:.2f}'.format(costo()), file=archivo)
+        '{:.2f}'.format(costo()),' - ',cantidades[x], file=archivo)
 print('|  Una estimación aproximada de otros insumos: $',
 '{:.2f}'.format(costo_insumos()), file=archivo)
 print('|  El margen de ganancia es: $',
