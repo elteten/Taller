@@ -3,6 +3,7 @@
 """
 Programa para hacer presupuestos del taller de Teten
 """
+"""TENGO QUE AGREGAR UNA FUNCION PARA CHAPA Y LA OPCION AL PRINCIPIO"""
 def costo():
     calculo=cantidades[x]*precios[x]
     return calculo
@@ -18,6 +19,10 @@ def costo_seismts():
 def costo_alambre():
     calculo_alambre=cantidades[x]*(precios[x]/800)
     return calculo_alambre
+
+def costo_chapa():
+    calculo_chapa=cantidades[x]*(precios[x]/20000)
+    return calculo_chapa
 
 def costo_insumos():
     calculo_insumos=((precio_horas*horas)/2)
@@ -56,6 +61,8 @@ print ('\"hierro\" o \"Hierro" , \"caño\" o \"Caño" y \"planchuela\" o \"Planc
 print ('para ingresar la cantidad en centimetros y el precio del tirón de seis metros')
 print ('\"alambre\" o \"Alambre"')
 print ('para ingresar la cantidad en centimetros y el precio del tirón de 8 metros')
+print ('\"chapa\" o \"Chapa"')
+print ('para ingresar la cantidad en centimetros cuadrados y el precio de la chapa de 200x100 cm')
 print ('\"pintura\" o \"Pintura"')
 print ('para ingresar la cantidad en centímetros cúbicos y el precio por litro')
 print ('Otras palabras en material va a multiplicar la cantidad por el precio')
@@ -95,6 +102,10 @@ for  x in range(len(materiales)):
         total.append(costo_alambre())
         print ('El costo de ',materiales[x],  'es: $',
         '{:.2f}'.format(costo_alambre()))
+    elif ('chapa' in materiales[x] or 'Chapa' in materiales[x]):
+        total.append(costo_chapa())
+        print ('El costo de ',materiales[x],  'es: $',
+        '{:.2f}'.format(costo_chapa()))
     elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
         total.append(costo_pintura())
         print ('El costo de ',materiales[x], 'es: $',
@@ -139,6 +150,9 @@ for  x in range(len(materiales)):
     elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
         print ('|  El costo de ',materiales[x],  'es: $',
         '{:.2f}'.format(costo_alambre()),' - ',cantidades[x], file=archivo)
+    elif ('chapa' in materiales[x] or 'Chapa' in materiales[x]):
+        print ('|  El costo de ',materiales[x],  'es: $',
+        '{:.2f}'.format(costo_chapa()),' - ',cantidades[x], file=archivo)
     else:
         print ('|  El costo de ',materiales[x], 'es : $',
         '{:.2f}'.format(costo()),' - ',cantidades[x], file=archivo)
