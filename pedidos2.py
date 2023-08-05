@@ -90,7 +90,8 @@ def main():
         print("2. Listar pedidos")
         print("3. Editar pedido")
         print("4. Eliminar pedido")
-        print("5. Guardar y salir")
+        print("5. Guardar")
+        print("6. Salir")
         
         opcion = input("Seleccione una opción: ")
         
@@ -118,7 +119,9 @@ def main():
         
         elif opcion == "5":
             taller.guardar_datos("pedidos.json")
-            print("Datos guardados. ¡Hasta luego!")
+            print("Datos guardados.")
+        elif opcion == "6":
+            print("¡Hasta luego!")
             break
         
         else:
