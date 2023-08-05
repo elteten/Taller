@@ -1,5 +1,5 @@
 #Ignorar los .txt
 *.txt
 *contraseña-github
-
+*.json
 
