@@ -3,7 +3,6 @@
 """
 Programa para hacer presupuestos del taller de Teten
 """
-"""TENGO QUE AGREGAR UNA FUNCION PARA CHAPA Y LA OPCION AL PRINCIPIO"""
 def costo():
     calculo=cantidades[x]*precios[x]
     return calculo

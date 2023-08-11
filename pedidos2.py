@@ -120,6 +120,7 @@ def main():
         elif opcion == "5":
             taller.guardar_datos("pedidos.json")
             print("Datos guardados.")
+
         elif opcion == "6":
             print("¡Hasta luego!")
             break
