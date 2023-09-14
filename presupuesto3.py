@@ -128,9 +128,11 @@ archivo=open(nombre, 'w')
 print(divisor, file=archivo)
 print('##  PRESUPUESTO PRELIMINAR  ##', file=archivo)
 print(divisor, file=archivo)
-print('|', file=archivo)
+from datetime import date
+print('|', date.today(), file=archivo)
 print('|  Presupuesto para ',cliente, file=archivo)
 print('|', file=archivo)
+
 
 # Seguir trabajando en el tema de las cantidades 
 for  x in range(len(materiales)):
