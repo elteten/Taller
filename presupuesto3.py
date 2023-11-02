@@ -31,8 +31,10 @@ def manodeobra():
     suma_horas=precio_horas*horas
     return suma_horas
 
+# Debería cambiar el margen. Estoy ganando un poco poco
+
 def margen():
-    margen_material=(sum(total)/2)
+    margen_material=(sum(total)/1.6)
     return margen_material
 
 def totales():
