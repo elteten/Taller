@@ -32,6 +32,7 @@ def manodeobra():
     return suma_horas
 
 # Debería cambiar el margen. Estoy ganando un poco poco
+# Probando con un 62.5 por ciento
 
 def margen():
     margen_material=(sum(total)/1.6)
@@ -61,7 +62,7 @@ print ('Podés usar las siguientes palabras clave:')
 print ('\"hierro\" o \"Hierro" , \"caño\" o \"Caño" y \"planchuela\" o \"Planchuela"')
 print ('para ingresar la cantidad en centimetros y el precio del tirón de seis metros')
 print ('\"alambre\" o \"Alambre"')
-print ('para ingresar la cantidad en centimetros y el precio del tirón de 8 metros')
+print ('para ingresar la cantidad en centimetros y el precio de 1 kg (8 mts)')
 print ('\"chapa\" o \"Chapa"')
 print ('para ingresar la cantidad en centimetros cuadrados y el precio de la chapa de 200x100 cm')
 print ('\"pintura\" o \"Pintura"')
