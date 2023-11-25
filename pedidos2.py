@@ -50,13 +50,17 @@ class Taller:
                 return
         print("ID de pedido no encontrado.")
 
-    def eliminar_pedido(self, id):
-        for pedido in self.pedidos:
-            if pedido.id == id:
-                self.pedidos.remove(pedido)
-                print("Pedido eliminado exitosamente.")
-                return
-        print("ID de pedido no encontrado.")
+    def eliminar_pedidos(self, ids):
+        pedidos_a_eliminar = [pedido for pedido in self.pedidos if pedido.id in ids]
+
+        if not pedidos_a_eliminar:
+            print("Ningún pedido encontrado con los IDs proporcionados.")
+            return
+
+        for pedido in pedidos_a_eliminar:
+            self.pedidos.remove(pedido)
+
+        print("Pedido(s) eliminado(s) exitosamente.")
 
     def guardar_datos(self, archivo):
         datos = []
@@ -115,9 +119,10 @@ def main():
             taller.editar_pedido(id, nueva_descripcion, nueva_cantidad, nuevo_precio)
         
         elif opcion == "4":
-            id = int(input("Ingrese el ID del pedido a eliminar: "))
-            taller.eliminar_pedido(id)
-        
+            ids_str = input("Ingrese los IDs de los pedidos a eliminar (separados por comas): ")
+            ids = [int(id) for id in ids_str.split(',')]
+            taller.eliminar_pedidos(ids)
+
         elif opcion == "5":
             taller.guardar_datos("pedidos.json")
             print("Datos guardados.")
