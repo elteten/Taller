@@ -35,7 +35,7 @@ def manodeobra():
 # Probando con un 62.5 por ciento
 
 def margen():
-    margen_material=(sum(total)/1.6)
+    margen_material=(sum(total)/1.4)
     return margen_material
 
 def totales():
