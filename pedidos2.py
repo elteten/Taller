@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """
 Lista de pedidos del taller
+AGREGAR FECHA. Puede ser despues del id
 """
 import json
 
