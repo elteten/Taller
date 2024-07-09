@@ -23,6 +23,9 @@ def costo_chapa():
     calculo_chapa=cantidades[x]*(precios[x]/20000)
     return calculo_chapa
 
+### TENGO QUE REDEFINIR EL COSTO DE OTROS INSUMOS
+### POR EL AUMENTO DEL ARGÓN Y LA CORRIENTE.
+
 def costo_insumos():
     calculo_insumos=((precio_horas*horas)/2)
     return calculo_insumos
