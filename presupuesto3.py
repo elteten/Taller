@@ -3,6 +3,9 @@
 """
 Programa para hacer presupuestos del taller de Teten
 """
+from datetime import date
+import os
+
 def costo():
     calculo=cantidades[x]*precios[x]
     return calculo
@@ -27,7 +30,7 @@ def costo_chapa():
 ### POR EL AUMENTO DEL ARGÓN Y LA CORRIENTE.
 
 def costo_insumos():
-    calculo_insumos=((precio_horas*horas)/2)
+    calculo_insumos=((precio_horas*horas)/1.4)
     return calculo_insumos
 
 def manodeobra():
@@ -130,49 +133,59 @@ print(divisor)
 
 cliente=input('Nombre del cliente: ')
 nombre=input('Nombre del archivo: ')
-archivo=open(nombre, 'w')
-print(divisor, file=archivo)
-print('##  PRESUPUESTO PRELIMINAR  ##', file=archivo)
-print(divisor, file=archivo)
-from datetime import date
-print('|', date.today(), file=archivo)
-print('|  Presupuesto para ',cliente, file=archivo)
-print('|', file=archivo)
+carpeta=input('Carpeta: ')
 
+# Crear la carpeta si no existe
+if not os.path.exists(carpeta):
+    os.makedirs(carpeta)
+
+# Combinar la carpeta y el nombre del archivo para formar la ruta completa
+ruta_archivo = os.path.join(carpeta, nombre)
+
+# Abrir el archivo en la carpeta especificada
+with open(ruta_archivo, 'w') as archivo:
+    print('--------------------------------------------------', file=archivo)
+    print('##  PRESUPUESTO PRELIMINAR  ##', file=archivo)
+    print('--------------------------------------------------', file=archivo)
+    print('|', date.today(), file=archivo)
+    print('|  Presupuesto para', cliente, file=archivo)
+    print('|', file=archivo)
 
 # Seguir trabajando en el tema de las cantidades 
-for  x in range(len(materiales)):
-    if ('caño' in materiales[x] or 'Caño' in materiales[x]):
-        print ('|  El costo de ',materiales[x], 'es: $',
-        '{:.2f}'.format(costo_seismts()),' - ',cantidades[x], file=archivo)
-    elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
-        print ('|  El costo de ',materiales[x], 'es: $',
-        '{:.2f}'.format(costo_pintura()),' - ',cantidades[x], file=archivo)
-    elif ('planchuela' in materiales[x] or 'Planchuela' in materiales[x]):
-        print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_seismts()),' - ',cantidades[x], file=archivo)
-    elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
-        print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_seismts()),' - ',cantidades[x], file=archivo)
-    elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
-        print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_alambre()),' - ',cantidades[x], file=archivo)
-    elif ('chapa' in materiales[x] or 'Chapa' in materiales[x]):
-        print ('|  El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_chapa()),' - ',cantidades[x], file=archivo)
-    else:
-        print ('|  El costo de ',materiales[x], 'es : $',
-        '{:.2f}'.format(costo()),' - ',cantidades[x], file=archivo)
-print('|  Una estimación aproximada de otros insumos: $',
-'{:.2f}'.format(costo_insumos()), file=archivo)
-print('|  El margen de ganancia es: $',
-'{:.2f}'.format(margen()), file=archivo)
-print('|  El costo de mano de obra es: $',
-'{:.2f}'.format(manodeobra()), file=archivo)
-print('|',file=archivo)
-print('|  El precio final es: $',
-'{:.2f}'.format( totales()), file=archivo)
-print('|',file=archivo)
-print(divisor, file=archivo)
-print('     El Teten.-', file=archivo)
-archivo.close()
+    for x in range(len(materiales)):
+        if ('caño' in materiales[x] or 'Caño' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_seismts()), ' - ', cantidades[x], file=archivo)
+        elif ('pintura' in materiales[x] or 'Pintura' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_pintura()), ' - ', cantidades[x], file=archivo)
+        elif ('planchuela' in materiales[x] or 'Planchuela' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_seismts()), ' - ', cantidades[x], file=archivo)
+        elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_seismts()), ' - ', cantidades[x], file=archivo)
+        elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_alambre()), ' - ', cantidades[x], file=archivo)
+        elif ('chapa' in materiales[x] or 'Chapa' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_chapa()), ' - ', cantidades[x], file=archivo)
+        else:
+            print('|  El costo de', materiales[x], 'es : $',
+                  '{:.2f}'.format(costo()), ' - ', cantidades[x], file=archivo)
+
+    print('|  Una estimación aproximada de otros insumos: $',
+          '{:.2f}'.format(costo_insumos()), file=archivo)
+    print('|  El margen de ganancia es: $',
+          '{:.2f}'.format(margen()), file=archivo)
+    print('|  El costo de mano de obra es: $',
+          '{:.2f}'.format(manodeobra()), file=archivo)
+    print('|', file=archivo)
+    print('|  El precio final es: $',
+          '{:.2f}'.format(totales()), file=archivo)
+    print('|', file=archivo)
+    print('--------------------------------------------------', file=archivo)
+    print('     El Teten.-', file=archivo)
+
+print(f"Archivo guardado exitosamente en {ruta_archivo}")

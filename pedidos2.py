@@ -95,12 +95,7 @@ def main():
     taller.cargar_datos("pedidos.json")
     
     while True:
-        print("\n1. Agregar pedido")
-        print("2. Listar pedidos")
-        print("3. Editar pedido")
-        print("4. Eliminar pedido")
-        print("5. Guardar")
-        print("6. Salir")
+        print("\n1. Agregar pedido - 2. Listar pedidos - 3. Editar pedido - 4. Eliminar pedido - 5. Guardar - 6. Salir")
         
         opcion = input("Seleccione una opción: ")
         
