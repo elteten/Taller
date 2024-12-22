@@ -2,4 +2,5 @@
 *.txt
 *contraseña-github
 *.json
-
+~.csv
+__pycache__
