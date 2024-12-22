@@ -104,7 +104,7 @@ def main():
             descripcion = input("Ingrese la descripción del pedido: ")
             cantidad = int(input("Ingrese la cantidad: "))
             # Si es necesario hacer operaciones matematicas con precio hay que definirlo como float.
-            precio = (input("Ingrese el precio: "))
+            precio = float(input("Ingrese el precio: "))
             fecha = (input("Ingrese la fecha: "))
             taller.agregar_pedido(cliente, descripcion, cantidad, precio, fecha)
             print("Pedido agregado exitosamente.")
