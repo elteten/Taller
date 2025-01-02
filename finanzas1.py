@@ -24,7 +24,7 @@ def mostrar_balance(df):
     egresos = df[df["Tipo"] == "Egreso"]["Monto"].sum()
     saldo = ingresos - egresos
 
-    table = Table(title="Balance Actual")
+    table = Table(title="[bold][cyan]Balance Actual[/bold][/cyan]")
     table.add_column("Tipo", justify="left")
     table.add_column("Monto", justify="right")
     table.add_row("Total Ingresos", f"${ingresos:.2f}")
@@ -47,7 +47,7 @@ def nueva_transaccion(df):
 
 # Mostrar historial de transacciones
 def mostrar_historial(df):
-    table = Table(title="Historial de Transacciones")
+    table = Table(title="[bold][cyan]Historial de Transacciones[/cyan][/bold]")
     table.add_column("ID", justify="center")
     table.add_column("Fecha", justify="center")
     table.add_column("Tipo", justify="left")
@@ -100,11 +100,8 @@ def menu():
     df = cargar_datos()
     while True:
         console.print("\n[bold]Menú Principal:[/bold]")
-        console.print("[1] Registrar nueva transacción")
-        console.print("[2] Mostrar balance actual")
-        console.print("[3] Ver historial de transacciones")
-        console.print("[4] Editar o eliminar transacción")
-        console.print("[5] Salir")
+        console.print("[1] Registrar nueva transacción [2] Mostrar balance actual [3] Ver historial de transacciones")
+        console.print("[4] Editar o eliminar transacción [5] Salir")
         opcion = console.input("Elige una opción: ")
 
         if opcion == "1":
@@ -116,7 +113,7 @@ def menu():
         elif opcion == "4":
             df = editar_eliminar_transaccion(df)
         elif opcion == "5":
-            console.print("[cyan]¡Buena suerte con la platita ;-) ![/cyan]")
+            console.print("[cyan][/cyan]")
             break
         else:
             console.print("[red]Opción inválida, intenta de nuevo.[/red]")
