@@ -26,10 +26,10 @@ def costo_chapa():
     calculo_chapa=cantidades[x]*(precios[x]/20000)
     return calculo_chapa
 
-### REDEFINIDO EL COSTO DE OTROS INSUMOS +- 83%
+### REDEFINIDO EL COSTO DE OTROS INSUMOS +- 90%
 
 def costo_insumos():
-    calculo_insumos=((precio_horas*horas)/1.2)
+    calculo_insumos=((precio_horas*horas)*1.2)
     return calculo_insumos
 
 def manodeobra():
@@ -37,10 +37,10 @@ def manodeobra():
     return suma_horas
 
 # Debería cambiar el margen. Estoy ganando un poco poco
-# Probando con un 83 +- por ciento
+# Probando con un 90 +- por ciento
 
 def margen():
-    margen_material=(sum(total)/1.2)
+    margen_material=(sum(total)/1.1)
     return margen_material
 
 def totales():
