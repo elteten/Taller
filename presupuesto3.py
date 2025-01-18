@@ -29,7 +29,7 @@ def costo_chapa():
 ### REDEFINIDO EL COSTO DE OTROS INSUMOS +- 90%
 
 def costo_insumos():
-    calculo_insumos=((precio_horas*horas)*1.2)
+    calculo_insumos=((precio_horas*horas)*1.1)
     return calculo_insumos
 
 def manodeobra():
