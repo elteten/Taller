@@ -18,9 +18,16 @@ def costo_seismts():
     calculo_seismts=cantidades[x]*(precios[x]/600)
     return calculo_seismts
 
-def costo_alambre():
-    calculo_alambre=cantidades[x]*(precios[x]/800)
-    return calculo_alambre
+# Tengo que agregar una función para el alambre de 3mm
+# y modificar la función costo_alambre4 para el de 4mm
+
+def costo_alambre4():
+    calculo_alambre4=cantidades[x]*(precios[x]/800)
+    return calculo_alambre4
+
+def costo_alambre3():
+    calculo_alambre3=cantidades[x]*(precios[x]/1200)
+    return calculo_alambre3
 
 def costo_chapa():
     calculo_chapa=cantidades[x]*(precios[x]/20000)
@@ -66,8 +73,10 @@ print ('--------------------------------------------------')
 print ('Podés usar las siguientes palabras clave:')
 print ('\"hierro\" o \"Hierro" , \"caño\" o \"Caño" y \"planchuela\" o \"Planchuela"')
 print ('para ingresar la cantidad en centimetros y el precio del tirón de seis metros')
-print ('\"alambre\" o \"Alambre"')
+print ('\"Alambre4\" o \"Alambre4"')
 print ('para ingresar la cantidad en centimetros y el precio de 1 kg (8 mts)')
+print ('\"alambre3\" o \"Alambre3"')
+print ('para ingresar la cantidad en centimetros y el precio de 1 kg (12 mts)')
 print ('\"chapa\" o \"Chapa"')
 print ('para ingresar la cantidad en centimetros cuadrados y el precio de la chapa de 200x100 cm')
 print ('\"pintura\" o \"Pintura"')
@@ -105,10 +114,14 @@ for  x in range(len(materiales)):
         total.append(costo_seismts())
         print ('El costo de ',materiales[x],  'es: $',
         '{:.2f}'.format(costo_seismts()))
-    elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
-        total.append(costo_alambre())
+    elif ('alambre4' in materiales[x] or 'Alambre4' in materiales[x]):
+        total.append(costo_alambre4())
         print ('El costo de ',materiales[x],  'es: $',
-        '{:.2f}'.format(costo_alambre()))
+        '{:.2f}'.format(costo_alambre4()))
+    elif ('alambre3' in materiales[x] or 'Alambre3' in materiales[x]):
+        total.append(costo_alambre3())
+        print ('El costo de ',materiales[x],  'es: $',
+        '{:.2f}'.format(costo_alambre3()))
     elif ('chapa' in materiales[x] or 'Chapa' in materiales[x]):
         total.append(costo_chapa())
         print ('El costo de ',materiales[x],  'es: $',
@@ -164,9 +177,12 @@ with open(ruta_archivo, 'w') as archivo:
         elif ('hierro' in materiales[x] or 'Hierro' in materiales[x]):
             print('|  El costo de', materiales[x], 'es: $',
                   '{:.2f}'.format(costo_seismts()), ' - ', cantidades[x], file=archivo)
-        elif ('alambre' in materiales[x] or 'Alambre' in materiales[x]):
+        elif ('alambre4' in materiales[x] or 'Alambre4' in materiales[x]):
             print('|  El costo de', materiales[x], 'es: $',
-                  '{:.2f}'.format(costo_alambre()), ' - ', cantidades[x], file=archivo)
+                  '{:.2f}'.format(costo_alambre4()), ' - ', cantidades[x], file=archivo)
+        elif ('alambre3' in materiales[x] or 'Alambre3' in materiales[x]):
+            print('|  El costo de', materiales[x], 'es: $',
+                  '{:.2f}'.format(costo_alambre3()), ' - ', cantidades[x], file=archivo)
         elif ('chapa' in materiales[x] or 'Chapa' in materiales[x]):
             print('|  El costo de', materiales[x], 'es: $',
                   '{:.2f}'.format(costo_chapa()), ' - ', cantidades[x], file=archivo)
