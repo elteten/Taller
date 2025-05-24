@@ -18,9 +18,6 @@ def costo_seismts():
     calculo_seismts=cantidades[x]*(precios[x]/600)
     return calculo_seismts
 
-# Tengo que agregar una función para el alambre de 3mm
-# y modificar la función costo_alambre4 para el de 4mm
-
 def costo_alambre4():
     calculo_alambre4=cantidades[x]*(precios[x]/800)
     return calculo_alambre4
