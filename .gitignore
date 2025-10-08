@@ -1,6 +1,4 @@
 #Ignorar los .txt
 *.txt
 *contraseña-github
-*.json
-*.csv
 __pycache__
