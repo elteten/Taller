@@ -30,7 +30,7 @@ def costo_chapa():
     calculo_chapa=cantidades[x]*(precios[x]/20000)
     return calculo_chapa
 
-### REDEFINIDO EL COSTO DE OTROS INSUMOS +- 130% de la mano de obra.
+### REDEFINIDO EL COSTO DE OTROS INSUMOS AHORA CALCULADOS SEGUN LOS COSTOS DE MATERIALES.
 
 def costo_insumos():
     calculo_insumos=(sum(total)*35/100)
